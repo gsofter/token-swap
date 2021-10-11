@@ -16,10 +16,13 @@ async function main() {
   // We get the contract to deploy
   const GMoldTokenContract = await hre.ethers.getContractFactory("GMoldToken");
   const gMoldToken = await GMoldTokenContract.deploy();
-
   await gMoldToken.deployed();
-
   console.log("gMoldToken deployed to:", gMoldToken.address);
+
+  const LMoldTokenContract = await hre.ethers.getContractFactory("LMoldToken");
+  const lMoldToken = await LMoldTokenContract.deploy();
+  await lMoldToken.deployed();
+  console.log('lMoldToken deployed to:', lMoldToken.address())
 }
 
 // We recommend this pattern to be able to use async/await everywhere
